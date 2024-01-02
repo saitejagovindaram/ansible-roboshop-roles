@@ -1,6 +1,7 @@
-- ansible.builtin.import_role:
-    name: common
-    tasks_from: installNodeJs18
+- name: Install maven
+  ansible.builtin.package:
+    name: maven
+    state: present
 
 - ansible.builtin.import_role:
     name: common
@@ -9,10 +10,13 @@
 - ansible.builtin.import_role:
     name: common
     tasks_from: installDependencies
-
+  
+- name: move artifact to app directory
+  ansible.builtin.command: mv /app/target/shipping-1.0.jar /app/shipping.jar
+  
 - ansible.builtin.import_role:
     name: common
-    tasks_from: loadDataToMongodb
+    tasks_from: loadDataToMySQL
 
 - ansible.builtin.import_role:
     name: common
