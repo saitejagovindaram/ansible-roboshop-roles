@@ -4,6 +4,6 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Running {{component}} role
+    - name: "Running {{component}} role"
       ansible.builtin.import_role:
-        name: {{component}}
+        name: "{{component}}"
