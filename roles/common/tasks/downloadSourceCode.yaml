@@ -1,7 +1,7 @@
 - name: add roboshop user
   ansible.builtin.user:
     name: roboshop
-  when: "{{component}}" != "web"
+  when: "{{component}}" != web
 
 - name: Create a app directory if it does not exist for roboshop
   ansible.builtin.file:
