@@ -1,0 +1,17 @@
+- name: Copy mongodb repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongo shell
+  ansible.builtin.package:
+    name: mongodb-org-shell
+    state: present
+
+- name: load mongodb test
+  ansible.builtin.command: mongo --host mongodb.saitejag.site --quiet --eval 'db.getSiblingDB("{{component}}").products.count()'
+  register: product_count
+
+- name: load mongodb
+  ansible.builtin.command: "mongo --host mongodb.saitejag.site:27017 < /app/schema/{{component}}.js"
+  when: product_count.stdout == "0"
