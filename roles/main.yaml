@@ -1,7 +1,7 @@
 ---
 - name: "Setup {{component}} for Roboshop"
-  # hosts: "{{component}}"
-  hosts: localhost
+  hosts: "{{component}}"
+  # hosts: localhost
   become: yes
   vars_files: variables_root.yaml
   tasks:
