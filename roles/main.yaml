@@ -1,6 +1,6 @@
 ---
 - name: "Setup {{component}} for Roboshop"
-  hosts: {{component}}
+  hosts: "{{component}}"
   # hosts: localhost
   become: yes
   tasks:
