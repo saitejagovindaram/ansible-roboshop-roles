@@ -1,0 +1,10 @@
+MONGO_URL: mongodb.saitejag.site
+WEB_URL: web.saitejag.site
+USER_URL: user.saitejag.site
+CART_URL: cart.saitejag.site
+CATALOGUE_URL: catalogue.saitejag.site
+SHIPPING_URL: shipping.saitejag.site
+MYSQL_URL: mysql.saitejag.site
+RABBITMQ_URL: rabbitmq.saitejag.site
+REDIS_URL: redis.saitejag.site
+PAYMENTS_URL: payments.saitejag.site
