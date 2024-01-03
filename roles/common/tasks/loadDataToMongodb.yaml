@@ -19,10 +19,10 @@
 
 
 - name: get the users count
-  ansible.builtin.command:  mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
+  ansible.builtin.command:  mongo --host mongodb.saitejag.site --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
   register: user_count
   when: component == "user"
 
 - name: load user data
-  ansible.builtin.command: mongo --host mongodb.daws76s.online < /app/schema/user.js
+  ansible.builtin.command: mongo --host mongodb.saitejag.site < /app/schema/user.js
   when: component == "user" and user_count.stdout == "0"
