@@ -1,11 +1,14 @@
-- name: "copy {{component}} svc file"
-  ansible.builtin.copy:
-    src: "{{component}}.service"
-    dest: /etc/systemd/system
+# - name: "copy {{component}} svc file"
+#   ansible.builtin.copy:
+#     src: "{{component}}.service"   # copy module looks for files in files directory by default
+#     dest: /etc/systemd/system
 
-- name: realod daemon
-  ansible.builtin.systemd_service:
-    daemon_reload: true
+- name: "copy {{component}} svc file"
+  ansible.builtin.template:
+    src: "{{component}}.service.j2"  # template module looks for files in templates directory by default
+    dest: /etc/systemd/system
+  notify:
+    - realod daemon
 
 - name: "start and enable {{component}}"
   ansible.builtin.service:
