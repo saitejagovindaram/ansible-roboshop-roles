@@ -8,4 +8,4 @@
   ansible.builtin.command: mvn clean package
   args:
     chdir: /app
-  when component == "shipping"
+  when: component == "shipping"
