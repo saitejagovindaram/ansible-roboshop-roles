@@ -34,3 +34,10 @@
     name: nginx
     enabled: yes
     state: started
+
+- name: new deployment
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: deployment
+  tags:
+    - deployment
