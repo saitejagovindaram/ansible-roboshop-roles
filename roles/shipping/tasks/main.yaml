@@ -14,9 +14,9 @@
 - name: move artifact to app directory
   ansible.builtin.command: mv /app/target/shipping-1.0.jar /app/shipping.jar
   
-# - ansible.builtin.import_role:
-#     name: common
-#     tasks_from: loadDataToMySQL
+- ansible.builtin.import_role:
+    name: common
+    tasks_from: loadDataToMySQL
 
 - ansible.builtin.import_role:
     name: common
